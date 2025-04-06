@@ -1,0 +1,26 @@
+baseURL: https://senthil.nz
+languageCode: en-us
+title: Senthil
+theme: ["PaperMod"]
+location: Auckland, NZ
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+params:
+  profileMode:
+    enabled: true
+    title: "Senthil Kumaran Santhosh Gopal"
+    subtitle: "Tradify, Software Reliablity Enginner"
+    location: "Auckland - NZ"
+  socialIcons:
+    - name: "email"
+      url: "mailto:senthil.santhoshgopal@gmail.com"
+    - name: "linkedin"
+      url: "https://linkedin.com/in/gsksln"
+menu:
+  main:
+    - identifier: newsletters
+      name: News letters
+      url: /feeds/
+      weight: 10

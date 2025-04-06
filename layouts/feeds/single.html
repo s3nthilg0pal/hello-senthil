@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="post-content">
+  <h1>{{ .Title }}</h1>
+
+  {{ with .GetTerms "tags" }}
+    <ul class="post-tags">
+      {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+    
+  {{ .Content }}
+  </div>
+{{ end }}
