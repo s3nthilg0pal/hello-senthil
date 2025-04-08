@@ -5,7 +5,9 @@
       "appLocation": ".",
       "outputLocation": "public",
       "appBuildCommand": "hugo -D --ignoreCache",
-      "run": "hugo server --ignoreCache"
+      "run": "hugo server --ignoreCache",
+      "appName": "senthil",
+      "resourceGroup": "hello-senthil"
     }
   }
 }

@@ -21,6 +21,6 @@ params:
 menu:
   main:
     - identifier: newsletters
-      name: News letters
+      name: Newsletters
       url: /feeds/
       weight: 10
