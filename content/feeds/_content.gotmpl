@@ -19,7 +19,7 @@
   "mediaType" "text/markdown" 
   "value" .content }}
   {{ $dates := dict "date" (time.AsTime .publishedAt) }}
-  {{ $params := dict "link" .link "title" .title "tags" .tags }}
+  {{ $params := dict "link" .link "title" .title "tags" .tags "text" .text}}
   {{ $page := dict
     "content" $content
     "dates" $dates
@@ -27,6 +27,7 @@
     "params" $params
     "path" .title
     "title" .title
+    "text" .text
   }}
   {{ $.AddPage $page }}
 

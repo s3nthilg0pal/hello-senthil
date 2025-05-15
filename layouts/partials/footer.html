@@ -5,7 +5,7 @@
         <span>{{ site.Copyright | markdownify }}</span>
         {{- else }}
         <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a>
-            Updated on: {{ now.Day }} {{ now.Month}} {{ now.Hour }}.{{ now.Minute }}:{{ now.Second }}
+            Updated on: {{ now.Day }} {{ now.Month}} {{ now.Hour }}:{{ now.Minute }}:{{ now.Second }}
         </span>
         {{- end }}
     {{- end }}

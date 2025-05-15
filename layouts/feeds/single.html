@@ -10,6 +10,10 @@
     </ul>
   {{ end }}
     
-  {{ .Content }}
+  {{ if .Content }}
+    {{ .Content }}
+  {{ else }}
+    {{ .Params.text | safeHTML }}
+  {{ end }}
   </div>
 {{ end }}
