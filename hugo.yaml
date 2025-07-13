@@ -15,7 +15,7 @@ params:
     location: "Auckland - NZ"
   socialIcons:
     - name: "email"
-      url: "mailto:senthil.santhoshgopal@gmail.com"
+      url: "mailto:hello@senthil.nz"
       event: "mail-me"
     - name: "linkedin"
       url: "https://linkedin.com/in/gsksln"
@@ -29,7 +29,11 @@ menu:
       name: Newsletters
       url: /feeds/
       weight: 10
+    - identifier: awesomeness
+      name: The Awesomeness
+      url: /awesome/
+      weight: 20
     - identifier: status
       name: Status
       url: https://status.senthil.nz
-      weight: 20
+      weight: 30
