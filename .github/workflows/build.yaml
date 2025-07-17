@@ -1,4 +1,4 @@
-name: Build hugo
+name: Build and deploy senthil.nz
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  build:
+  build-deploy:
     if: github.actor == 's3nthilg0pal'
     runs-on: self-hosted
     concurrency:
