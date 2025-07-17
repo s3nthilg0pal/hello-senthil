@@ -29,10 +29,6 @@ menu:
       name: Newsletters
       url: /feeds/
       weight: 10
-    - identifier: awesomeness
-      name: The Awesomeness
-      url: /awesome/
-      weight: 20
     - identifier: status
       name: Status
       url: https://status.senthil.nz
