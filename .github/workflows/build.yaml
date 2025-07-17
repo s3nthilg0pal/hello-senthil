@@ -30,3 +30,11 @@ jobs:
 
       - name: Build
         run: hugo --ignoreCache
+
+      - name: Make script executable
+        run: chmod +x ./scripts/deploy.sh
+
+      - name: Run deploy script with token
+        run: ./scripts/deploy.sh
+        env:
+          AZURE_STATIC_WEB_APPS_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
