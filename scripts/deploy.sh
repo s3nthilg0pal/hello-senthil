@@ -9,6 +9,7 @@ export NVS_HOME="$HOME/.nvs"
 source "$NVS_HOME/nvs.sh"
 
 nvs use 24
+swa --print-config
 
 swa deploy ./public \
   --deployment-token "$AZURE_STATIC_WEB_APPS_TOKEN" \
