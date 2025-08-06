@@ -20,9 +20,6 @@ params:
     - name: "linkedin"
       url: "https://linkedin.com/in/gsksln"
       event: "linkedIn"
-    - name: "cv"
-      url: "/download/cv.pdf"
-      event: "see-cv"
 menu:
   main:
     - identifier: newsletters
