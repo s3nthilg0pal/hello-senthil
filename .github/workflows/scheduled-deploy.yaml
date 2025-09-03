@@ -8,7 +8,7 @@ on:
 jobs:
   build-deploy:
     if: github.actor == 's3nthilg0pal'
-    runs-on: self-hosted
+    runs-on: arc-runner-set
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
