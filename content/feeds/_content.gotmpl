@@ -1,6 +1,6 @@
 {{/* Get remote data. */}}
 {{ $data := dict }}
-{{ $url := "http://192.168.0.159:8085/api/feeds/articles" }}
+{{ $url := "http://192.168.0.235/api/feeds/articles" }}
 {{ with try (resources.GetRemote $url) }}
   {{ with .Err }}
     {{ errorf "Unable to get remote resource %s: %s" $url . }}
