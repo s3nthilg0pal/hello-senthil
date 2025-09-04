@@ -28,5 +28,5 @@ menu:
       weight: 10
     - identifier: status
       name: Status
-      url: https://status.senthil.nz
+      url: https://status.senthil.nz/status/live
       weight: 30
