@@ -1,10 +1,10 @@
-name: Build and deploy senthil.nz
+name: Build senthil.nz
 
 on:
   pull_request:
 
 jobs:
-  build-deploy:
+  build:
     if: github.actor == 's3nthilg0pal'
     runs-on: arc-runner-set
     concurrency:
