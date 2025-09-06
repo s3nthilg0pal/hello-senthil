@@ -2,6 +2,7 @@ baseURL: https://senthil.nz
 languageCode: en-us
 title: Senthil
 theme: ["PaperMod"]
+timeZone: "Pacific/Auckland"
 location: Auckland, NZ
 markup:
   goldmark:
