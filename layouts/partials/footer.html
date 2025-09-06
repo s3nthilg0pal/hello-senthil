@@ -4,8 +4,8 @@
         {{- if site.Copyright }}
         <span>{{ site.Copyright | markdownify }}</span>
         {{- else }}
-        <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a>
-            Updated on: {{ now.Day }} {{ now.Month}} {{ now.Hour }}:{{ now.Minute }}:{{ now.Second }}
+        <span><a href="{{ "" | absLangURL }}">{{ site.Title }}</a>
+            Updated on: {{ now.In (time.LoadLocation "Pacific/Auckland") | time.Format "02 Jan 2006 15:04:05 MST" }}
         </span>
         {{- end }}
     {{- end }}
