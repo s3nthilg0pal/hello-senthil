@@ -11,11 +11,11 @@ params:
   profileMode:
     enabled: true
     title: "Senthil Kumaran Santhosh Gopal"
-    subtitle: "Tradify, Software Reliablity Enginner"
+    subtitle: "Building fast, stable and scalable systems"
     location: "Auckland - NZ"
   socialIcons:
     - name: "email"
-      url: "mailto:hello@senthil.nz"
+      url: "mailto:senthil.santhoshgopal@gmail.com"
       event: "mail-me"
     - name: "linkedin"
       url: "https://linkedin.com/in/gsksln"
