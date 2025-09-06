@@ -5,7 +5,7 @@
         <span>{{ site.Copyright | markdownify }}</span>
         {{- else }}
         <span><a href="{{ "" | absLangURL }}">{{ site.Title }}</a>
-            Updated on: {{ now | time.Format "02 Jan 2006 15:04:05 MST" }}
+            Updated on: {{ now | time.In "Pacific/Auckland" | time.Format "02 Jan 2006 15:04:05 MST" }}
         </span>
         {{- end }}
     {{- end }}
