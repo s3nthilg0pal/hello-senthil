@@ -1,0 +1,29 @@
+name: Build senthil.nz
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    if: github.actor == 's3nthilg0pal'
+    runs-on: arc-runner-set
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          
+      - name: Update submodules to latest remote and merge
+        run: |
+          git submodule update --remote --merge
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.148.1'
+          extended: true
+
+      - name: Build
+        run: hugo --ignoreCache
