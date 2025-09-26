@@ -9,6 +9,7 @@ markup:
     renderer:
       unsafe: true
 params:
+  ShowReadingTime: true
   profileMode:
     enabled: true
     title: "Senthil Kumaran Santhosh Gopal"
