@@ -13,7 +13,7 @@ params:
   profileMode:
     enabled: true
     title: "Senthil Kumaran Santhosh Gopal"
-    subtitle: "Building fast, stable and scalable systems"
+    subtitle: "Software Engineer"
     location: "Auckland - NZ"
   socialIcons:
     - name: "email"
@@ -25,7 +25,7 @@ params:
 menu:
   main:
     - identifier: newsletters
-      name: Newsletters
+      name: .rss I read daily
       url: /feeds/
       weight: 10
     - identifier: status
