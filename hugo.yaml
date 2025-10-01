@@ -28,6 +28,10 @@ menu:
       name: .rss I read daily
       url: /feeds/
       weight: 10
+    - identifier: architecture
+      name: Architecture
+      url: /arch.jpg
+      weight: 20
     - identifier: status
       name: Status
       url: https://status.senthil.nz/status/live
