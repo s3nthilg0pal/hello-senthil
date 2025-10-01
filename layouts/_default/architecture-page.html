@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main class="post-content">
+  <article>
+    <header class="entry-header">
+      <h1 class="entry-title">{{ .Title }}</h1>
+    </header>
+
+    <div class="entry-content" style="text-align: center;">
+      <img src="{{ .Params.image }}" alt="{{ .Title }}" style="max-width: 100%; height: auto; margin-top: 1rem;">
+    </div>
+  </article>
+</main>
+{{ end }}
