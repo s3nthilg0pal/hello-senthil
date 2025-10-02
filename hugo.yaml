@@ -31,7 +31,7 @@ menu:
     - identifier: architecture
       name: Architecture
       url: /architecture
-      weight: 20
+      weight: -10
     - identifier: status
       name: Status
       url: https://status.senthil.nz/status/live
