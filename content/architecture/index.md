@@ -1,5 +1,5 @@
 ---
-title: "senthil.nz Architecture"
+title: "Architecture"
 slug: "architecture"       
 layout: "architecture-page"
 hideMeta: true
