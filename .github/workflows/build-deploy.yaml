@@ -20,7 +20,7 @@ jobs:
           
       - name: Update submodules to latest remote and merge
         run: |
-          git submodule update --init --recursive
+          git submodule update --remote --merge
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
