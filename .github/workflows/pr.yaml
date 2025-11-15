@@ -12,7 +12,7 @@ env:
 jobs:
   build:
     name: Build Hugo site and Docker image
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -41,7 +41,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Docker image
-        run: |
-          docker build -f Dockerfile.preview -t $REGISTRY/$OWNER/$IMAGE_NAME:latest .
-          docker push $REGISTRY/$OWNER/$IMAGE_NAME:latest
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: Dockerfile.preview
+          push: true
+          tags: $REGISTRY/$OWNER/$IMAGE_NAME:latest
