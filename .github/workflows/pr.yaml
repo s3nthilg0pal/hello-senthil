@@ -1,0 +1,81 @@
+name: PR - Build and preview Hugo site
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+env:
+  IMAGE_NAME: hello-senthil
+  REGISTRY: ghcr.io
+  OWNER: ${{ github.repository_owner }}
+
+jobs:
+  build-site:
+    name: Build Hugo site and Docker image
+    runs-on: arc-runner-set
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Update submodules to latest remote and merge
+        run: |
+          git submodule update --remote --merge
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.148.1"
+          extended: true
+
+      - name: Build
+        run: hugo --ignoreCache --config hugo.pr.yaml
+
+
+      - name: Set artifact name
+        id: set-output
+        run: echo "artifact-name=site-public" >> $GITHUB_OUTPUT
+
+      - name: Upload static site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-public
+          path: public
+
+  build-and-push-image:
+    needs: build-site
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download static site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-public
+          path: ./public
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+
+      - name: Build and push nginx image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile.preview
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+

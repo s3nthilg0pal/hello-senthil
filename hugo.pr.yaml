@@ -1,0 +1,34 @@
+baseURL: https://preview.senthil.nz
+languageCode: en-us
+title: Senthil
+theme: ["PaperMod"]
+timeZone: "Pacific/Auckland"
+location: Auckland, NZ
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+params:
+  ShowReadingTime: true
+  profileMode:
+    enabled: true
+    title: "Senthil Kumaran Santhosh Gopal"
+    subtitle: "Software Engineer"
+    location: "Auckland - NZ"
+  socialIcons:
+    - name: "email"
+      url: "mailto:senthil.santhoshgopal@gmail.com"
+      event: "mail-me"
+    - name: "linkedin"
+      url: "https://linkedin.com/in/gsksln"
+      event: "linkedIn"
+menu:
+  main:
+    - identifier: newsletters
+      name: .rss I read daily
+      url: /feeds/
+      weight: 10
+    - identifier: status
+      name: Status
+      url: https://status.senthil.nz/status/live
+      weight: 30
