@@ -12,7 +12,7 @@ env:
 jobs:
   build:
     name: Build Hugo site and Docker image
-    runs-on: arc-runner-set
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
