@@ -34,17 +34,28 @@ jobs:
       - name: Build
         run: hugo --ignoreCache --config hugo.pr.yaml
 
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v3
+
+      - name: Set artifact name
+        id: set-output
+        run: echo "artifact-name=site-public" >> $GITHUB_OUTPUT
+
+      - name: Upload static site artifact
+        uses: actions/upload-artifact@v4
         with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          name: site-public
+          path: public
+
+    #   - name: Log in to GitHub Container Registry
+    #     uses: docker/login-action@v3
+    #     with:
+    #       registry: ${{ env.REGISTRY }}
+    #       username: ${{ github.actor }}
+    #       password: ${{ secrets.GITHUB_TOKEN }}
 
 
-      - name: Build with Kaniko
-        uses: int128/kaniko-action@v1
-        with:
-            push: true
-            tags: $REGISTRY/$OWNER/$IMAGE_NAME:${{ github.sha }}
-            file: Dockerfile.preview
+    #   - name: Build with Kaniko
+    #     uses: int128/kaniko-action@v1
+    #     with:
+    #         push: true
+    #         tags: $REGISTRY/$OWNER/$IMAGE_NAME:${{ github.sha }}
+    #         file: Dockerfile.preview
