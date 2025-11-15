@@ -1,8 +1,13 @@
-name: PR - Hugo build + Docker
+name: PR - Build and preview Hugo site
 
 on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
+
+env:
+  IMAGE_NAME: hello-senthil
+  REGISTRY: ghcr.io
+  OWNER: ${{ github.repository_owner }}
 
 jobs:
   build:
@@ -13,8 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+          submodules: recursive
+          fetch-depth: 0
 
       - name: Update submodules to latest remote and merge
         run: |
@@ -28,3 +33,15 @@ jobs:
 
       - name: Build
         run: hugo --ignoreCache --config hugo.pr.yaml
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        run: |
+          docker build -f Dockerfile.preview -t $REGISTRY/$OWNER/$IMAGE_NAME:latest .
+          docker push $REGISTRY/$OWNER/$IMAGE_NAME:latest
