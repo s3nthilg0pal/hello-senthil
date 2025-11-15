@@ -41,12 +41,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      - name: Build and push
-        uses: docker/build-push-action@v5
+
+      - name: Build with Kaniko
+        uses: int128/kaniko-action@v1
         with:
-          context: .
-          file: Dockerfile.preview
-          push: true
-          tags: $REGISTRY/$OWNER/$IMAGE_NAME:latest
+            push: true
+            tags: $REGISTRY/$OWNER/$IMAGE_NAME:${{ github.sha }}
+            file: Dockerfile.preview
