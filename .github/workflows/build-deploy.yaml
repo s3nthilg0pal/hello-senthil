@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - main  # Set a branch to deploy
-  pull_request:
-
+      
 jobs:
   build-deploy:
     if: github.actor == 's3nthilg0pal'
