@@ -25,6 +25,6 @@ params:
 menu:
   main:
     - identifier: newsletters
-      name: .rss I read daily
+      name: Feeds
       url: /feeds/
       weight: 10
